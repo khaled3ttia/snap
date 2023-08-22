@@ -20,7 +20,9 @@ int main(int argc, char* argv[]) {
   // fast O(e) approximate algorithm
   PNGraph Graph = TKronMtx::GenFastKronecker(SeedMtx, NIter, true, Seed); 
   // save edge list
-  TSnap::SaveEdgeList(Graph, OutFNm, TStr::Fmt("Kronecker Graph: seed matrix [%s]", MtxNm.CStr()));
+  //TSnap::SaveEdgeList(Graph, OutFNm, TStr::Fmt("Kronecker Graph: seed matrix [%s]", MtxNm.CStr()));
+  // Khaled : save mtx
+  TSnap::SaveMatlabSparseMtx(Graph, OutFNm);
   Catch
   printf("\nrun time: %s (%s)\n", ExeTm.GetTmStr(), TSecTm::GetCurTm().GetTmStr().CStr());
   return 0;
